@@ -1,8 +1,9 @@
 ############################
 ### Numpy Crash Course #####
 ############################
+#%%
 import numpy as np
-
+#%%
 my_list = [0,1,2,3,4]
 
 arr = np.array(my_list)

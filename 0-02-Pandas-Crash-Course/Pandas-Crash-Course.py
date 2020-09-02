@@ -3,14 +3,14 @@
 ##################################
 # We'll use pandas more than numpy in the Course
 # so let's quickly go over a few main ideas with pandas!
-
+#%%
 import pandas as pd
 import numpy as np
 
-
+#%%
 # Reading in CSV files. Use the read_csv command.
 # More options: https://pandas.pydata.org/pandas-docs/stable/io.html
-df = pd.read_csv('salaries.csv')
+df = pd.read_csv(r'C:\Users\WIECKOWS\Documents\data_science\Plotly-Dashboards-with-Dash\0-02-Pandas-Crash-Course\salaries.csv')
 
 print(df)
 
@@ -63,3 +63,5 @@ df.columns # Grab a list of all columns
 df.index # Create an index list
 # You can convert a numpy matrix to a dataframe with:
 mat = np.arange(50).reshape(5,10)
+
+# %%

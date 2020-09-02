@@ -6,18 +6,19 @@
 # Complete the tasks numbered below.
 # If you get stuck, check out the solution video!
 #######################################################
-
+#%%
 #######
 # TASK 1: Import pandas and numpy
 ######
 
-
-
+import numpy as np
+import pandas as pd
+#%%
 #######
 # TASK 2: Set Numpy's random number generator seed to 101
 ######
 
-
+np.random.seed(101)
 
 #######
 # TASK 3: Create a NumPy Matrix of 100 rows by 5 columns consisting of
@@ -25,7 +26,7 @@
 #         limit may be exclusive.)
 ######
 
-
+a = np.random.randint(1, 101, (100,5))
 
 #######
 # TASK 4: Now use pd.DataFrame() to read in this numpy array as a dataframe.
@@ -33,7 +34,7 @@
 #         dataframe. Pandas will auto label the columns to 0-4
 ######
 
-
+a_df = pd.DataFrame(a)
 
 #######
 # TASK 5: Using your previously created DataFrame, use [df.columns = [...]]
@@ -41,7 +42,7 @@
 #         to rename the pandas columns to be ['f1','f2','f3','f4','label'].
 ######
 
-
+a_df.columns = ['f1','f2','f3','f4','label']
 
 #######
 # TASK 6: Alright, all the other tasks were hopefully straightforward.
@@ -52,3 +53,8 @@
 #         between 0 and 100. (Hint: Use numpy to create the numbers, then pass
 #         it in to pd.DataFrame(), check out the data= and index= parameters
 #         for that call.)
+
+df = pd.DataFrame(data=np.random.randint(0, 101, (50,4)),
+                  columns=['A','B','C','D'],
+                  )
+
