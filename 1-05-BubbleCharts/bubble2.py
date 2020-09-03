@@ -19,11 +19,13 @@ data = [go.Scatter(
             y=df['mpg'],
             text=df['text2'],  # use the new column for the hover text
             mode='markers',
-            marker=dict(size=1.5*df['cylinders'])
+            marker=dict(size=1.5*df['cylinders'],
+                        color=df['cylinders'],
+                        showscale=True)
     )]
 layout = go.Layout(
     title='Vehicle mpg vs. horsepower',
-    hovermode='closest'
+    hovermode='x'
 )
 fig = go.Figure(data=data, layout=layout)
 pyo.plot(fig, filename='bubble2.html')

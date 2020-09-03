@@ -3,12 +3,13 @@
 # with the added feature that the size of the
 # marker can be set by the data.
 ######
+#%%
 import plotly.offline as pyo
 import plotly.graph_objs as go
 import pandas as pd
 
 df = pd.read_csv('../data/mpg.csv')
-
+#%%
 data = [go.Scatter(          # start with a normal scatter plot
     x=df['horsepower'],
     y=df['mpg'],
