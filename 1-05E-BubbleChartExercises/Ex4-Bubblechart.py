@@ -63,8 +63,11 @@ data = [go.Scatter(
             text=data_adcc_hladr.index,
             mode='markers',
             marker=dict(size=.3*data_adcc_hladr['max % ADCC'],
-                        color=data_adcc_hladr['FCGR3A'],
-                        colorscale='Viridis')
+                        color=data_adcc_hladr['FCGR3A'].map(
+                            {'F/F': '#3a65a1',
+                             'F/V': '#db5656',
+                             'V/V': '#4ca13b'}),
+                        )
     )]
 
 """
