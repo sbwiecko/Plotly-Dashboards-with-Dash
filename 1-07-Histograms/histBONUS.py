@@ -3,12 +3,13 @@
 # is a continuous time series, and the y-axis sums
 # a frequency that is already part of the dataset
 ######
+# %%
 import plotly.offline as pyo
 import plotly.graph_objs as go
 import pandas as pd
 
 df = pd.read_csv('../data/FremontBridgeBicycles.csv')
-
+# %%
 # Convert the "Date" text column to a Datetime series:
 df['Date'] = pd.to_datetime(df['Date'])
 

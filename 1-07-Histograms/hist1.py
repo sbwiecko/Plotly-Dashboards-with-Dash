@@ -1,6 +1,7 @@
 #######
 # This histogram looks back at the mpg dataset
 ######
+# %%
 import plotly.offline as pyo
 import plotly.graph_objs as go
 import pandas as pd
@@ -17,3 +18,5 @@ layout = go.Layout(
 )
 fig = go.Figure(data=data, layout=layout)
 pyo.plot(fig, filename='basic_histogram.html')
+
+# %%
