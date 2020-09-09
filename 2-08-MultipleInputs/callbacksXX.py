@@ -8,6 +8,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.graph_objs as go
 import pandas as pd
+import numpy as np
 
 app = dash.Dash()
 
@@ -18,6 +19,8 @@ app = dash.Dash()
 #     'indicators.csv')
 
 df = pd.read_csv('../Data/indicators.csv')
+df.dropna(inplace=True)
+df['Year'] = df['Year'].astype(int)
 
 available_indicators = df['Indicator Name'].unique()
 
@@ -73,7 +76,7 @@ app.layout = html.Div(
             max=df['Year'].max(),
             value=df['Year'].max(),
             step=None,
-            marks={str(year): str(year) for year in df['Year'].unique()}
+            marks={year: str(year) for year in df['Year'].unique()}
         )
     ],
     
