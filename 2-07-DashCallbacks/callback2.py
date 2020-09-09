@@ -16,13 +16,23 @@ year_options = []
 for year in df['year'].unique():
     year_options.append({'label':str(year),'value':year})
 
-app.layout = html.Div([
-    dcc.Graph(id='graph'),
-    dcc.Dropdown(id='year-picker',options=year_options,value=df['year'].min())
-])
+app.layout = html.Div(
+    [
+        dcc.Graph(id='graph'),
+        dcc.Dropdown(
+            id='year-picker',
+            options=year_options,
+            value=df['year'].min()
+        )
+    ]
+)
 
-@app.callback(Output('graph', 'figure'),
-              [Input('year-picker', 'value')])
+@app.callback(
+    Output('graph', 'figure'),
+    [
+        Input('year-picker', 'value')
+    ]
+)
 def update_figure(selected_year):
     filtered_df = df[df['year'] == selected_year]
     traces = []

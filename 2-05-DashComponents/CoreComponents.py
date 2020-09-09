@@ -52,7 +52,7 @@ app.layout = html.Div(
 
         # SLIDER https://dash.plot.ly/dash-core-components/slider
         html.Label('Slider'),
-        html.P(    # line break
+        html.P(    # enclose within a new paragraph
             dcc.Slider(
                 min=-5,
                 max=10,
@@ -64,24 +64,22 @@ app.layout = html.Div(
 
         # RADIO ITEMS https://dash.plot.ly/dash-core-components/radioitems
         html.Label('Radio Items'),
-        html.P(
-            dcc.RadioItems(
-                options=[
-                    {
-                        'label': 'New York City',
-                        'value': 'NYC'
-                    },
-                    {
-                        'label': 'Montréal',
-                        'value': 'MTL'
-                    },
-                    {
-                        'label': 'San Francisco',
-                        'value': 'SF'
-                    }
-                ],
-                value='MTL'
-            )
+        dcc.RadioItems(
+            options=[
+                {
+                    'label': 'New York City',
+                    'value': 'NYC'
+                },
+                {
+                    'label': 'Montréal',
+                    'value': 'MTL'
+                },
+                {
+                    'label': 'San Francisco',
+                    'value': 'SF'
+                }
+            ],
+            value='MTL'
         )
     ],
     style={'width': '50%'}
