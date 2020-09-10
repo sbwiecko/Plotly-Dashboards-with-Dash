@@ -24,11 +24,14 @@ app.layout = html.Div([
 ])
 
 @app.callback(
-    Output('number-out', 'children'),
-    [Input('submit-button', 'n_clicks')],
-    [State('number-in', 'value')])
-def output(n_clicks, number):
-    return number
+    Output('number-out', 'children'),       # Input triggers the underlying function, with the option to use it's own Input value
+    [Input('submit-button', 'n_clicks')],   # when the Input value(n_clicks) changes, it **triggers** the output function,
+    [State('number-in', 'value')])          # which uses both the Input value and the State Value to update the Output.
+def output(n_clicks, number):   # notice how n_clicks is linked to n_clicks(Input), and value is linked to the value(State)
+    return number               # The Input value(n_click) isn't used in the output function, it serves purely as a **trigger**.
+
+# Input and State are basically the same, the main difference being
+# that State doesn't have the ability to trigger the underlying function.
 
 if __name__ == '__main__':
     app.run_server()
