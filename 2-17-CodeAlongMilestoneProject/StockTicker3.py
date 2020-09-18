@@ -38,10 +38,10 @@ app.layout = html.Div([
 def update_graph(stock_ticker):
     start = datetime(2017, 1, 1)
     end = datetime(2017, 12, 31)
-    df = web.DataReader(stock_ticker,'iex',start,end)
+    df = web.get_data_tiingo(stock_ticker,start,end, api_key="efcb8226f45a832dae79835ef5d42dd427a53cfb")
     fig = {
         'data': [
-            {'x': df.index, 'y': df.close}
+            {'x': df.index.get_level_values(1), 'y': df.close}
         ],
         'layout': {'title':stock_ticker}
     }
