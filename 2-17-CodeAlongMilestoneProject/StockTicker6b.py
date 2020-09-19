@@ -32,7 +32,7 @@ app.layout = html.Div([
         )
     ], style={'display':'inline-block', 'verticalAlign':'top'}),
     html.Div([
-        html.Label('Select start and end dates:', for='my_date_picker'),
+        html.Label('Select start and end dates:', htmlFor='my_date_picker'),
         dcc.DatePickerRange(
             id='my_date_picker',
             min_date_allowed=datetime(2015, 1, 1),
@@ -69,8 +69,8 @@ def update_graph(n_clicks, stock_ticker, start_date, end_date):
     end = datetime.strptime(end_date[:10], '%Y-%m-%d')
     traces = []
     for tic in stock_ticker:
-        df = web.DataReader(tic,'iex',start,end)
-        traces.append({'x':df.index, 'y': df.close, 'name':tic})
+        df = web.get_data_tiingo(tic, start, end, api_key="efcb8226f45a832dae79835ef5d42dd427a53cfb")
+        traces.append({'x':df.index.get_level_values(1), 'y': df['close'], 'name':tic})
     fig = {
         'data': traces,
         'layout': {'title':', '.join(stock_ticker)+' Closing Prices'}

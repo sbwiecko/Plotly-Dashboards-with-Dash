@@ -47,16 +47,19 @@ app.layout = html.Div([
 ])
 @app.callback(
     Output('my_graph', 'figure'),
-    [Input('my_ticker_symbol', 'value'),
-    Input('my_date_picker', 'start_date'),
-    Input('my_date_picker', 'end_date')])
+    [
+        Input('my_ticker_symbol', 'value'),
+        Input('my_date_picker', 'start_date'),
+        Input('my_date_picker', 'end_date')
+    ]
+)
 def update_graph(stock_ticker, start_date, end_date):
     start = datetime.strptime(start_date[:10], '%Y-%m-%d')
     end = datetime.strptime(end_date[:10], '%Y-%m-%d')
-    df = web.DataReader(stock_ticker,'iex',start,end)
+    df = web.get_data_tiingo(stock_ticker,start,end, api_key="efcb8226f45a832dae79835ef5d42dd427a53cfb")
     fig = {
         'data': [
-            {'x': df.index, 'y': df.close}
+            {'x': df.index.get_level_values(1), 'y': df['close']}
         ],
         'layout': {'title':stock_ticker}
     }
