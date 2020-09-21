@@ -7,10 +7,14 @@ from datetime import datetime
 
 app = dash.Dash()
 
-def update_layout():
-    return html.H1('The time is: ' + str(datetime.now()))
+crash_free = 0
 
-app.layout = update_layout
+def update_layout():
+    global crash_free
+    crash_free += 1
+    return html.H1('Crash free for {}; time is: '.format(crash_free) + str(datetime.now()))
+
+app.layout = update_layout   # no parentheses has refreshing the page calls app.layout
 
 if __name__ == '__main__':
     app.run_server()

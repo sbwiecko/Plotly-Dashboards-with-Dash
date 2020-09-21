@@ -18,17 +18,20 @@ app.layout = html.Div([
         html.Iframe(src = 'https://www.flightradar24.com', height = 500, width = 1200)
     ]),
 
-    html.Div([
-    html.Pre(
-        id='counter_text',
-        children='Active flights worldwide:'
-    ),
-    dcc.Graph(id='live-update-graph',style={'width':1200}),
-    dcc.Interval(
-        id='interval-component',
-        interval=6000, # 6000 milliseconds = 6 seconds
-        n_intervals=0
-    )])
+    html.Div(
+        [
+            html.Pre(
+                id='counter_text',
+                children='Active flights worldwide:'
+            ),
+            dcc.Graph(id='live-update-graph',style={'width':1200}),
+            dcc.Interval(
+                id='interval-component',
+                interval=6000, # 6000 milliseconds = 6 seconds
+                n_intervals=0
+            )
+        ]
+    )
 ])
 counter_list = []
 

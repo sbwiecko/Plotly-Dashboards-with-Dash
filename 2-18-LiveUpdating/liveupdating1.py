@@ -18,7 +18,8 @@ app = dash.Dash()
 
 app.layout = html.Div([
     html.Div([
-        html.Iframe(src = 'https://www.flightradar24.com', height = 500, width = 1200)
+        html.Iframe(src = 'https://www.flightradar24.com', height = 400, width = 1000)
+        # larger sites block any sort of embedding that isn't coming from their host, so why doesn't work with flightradar
     ]),
 
     html.Div([
